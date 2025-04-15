@@ -1,0 +1,35 @@
+{% extends 'AgentAram/base.html' %}
+{% block title %}Résultats – Selon Reddinton{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-semibold text-blue-500 mb-6">Agent Aram vous présentes les resultats d'analyse</h2>
+
+<table class="w-full bg-white shadow rounded">
+  <thead class="bg-blue-100 text-blue-900">
+    <tr>
+      <th class="px-4 py-2 text-left">Nom</th>
+      <th class="px-4 py-2 text-left">Prix</th>
+      <th class="px-4 py-2 text-left">Ancien Prix</th>
+      <th class="px-4 py-2 text-left">Réduction</th>
+      <th class="px-4 py-2 text-left">Description</th>
+      <th class="px-4 py-2 text-left">Avantage</th>
+      <th class="px-4 py-2 text-left">Lien</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in result.products %}
+    <tr class="border-t">
+      <td class="px-4 py-2">{{ p.name }}</td>
+      <td class="px-4 py-2">{{ p.price }}</td>
+      <td class="px-4 py-2">{{ p.normal_price }}</td>
+      <td class="px-4 py-2">{{ p.discount }}</td>
+      <td class="px-4 py-2">{{ p.description }}</td>
+      <td class="px-4 py-2">{{ p.advantage }}</td>
+      <td class="px-4 py-2">
+        <a href="{{ p.link }}" target="_blank" class="text-blue-500 underline">Voir</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

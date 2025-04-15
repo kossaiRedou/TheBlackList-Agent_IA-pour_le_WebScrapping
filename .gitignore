@@ -1,0 +1,7 @@
+#l'environement virtuel
+Agent_env
+FBI_office
+
+# infosormations sensibles
+.env
+

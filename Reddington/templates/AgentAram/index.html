@@ -1,0 +1,19 @@
+{% extends 'AgentAram/base.html' %}
+{% block title %}Accueil – FBI Office{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-2xl font-semibold text-blue-500 mb-4">Lancer une nouvelle analyse</h2>
+  <p class="mb-4 text-gray-600">Remplissez le formulaire Raymond Reddington vous écoute</p>
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <!-- Affichage du formulaire Django -->
+    {{ form.as_p }}
+
+    <button type="submit" class="block w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+      Envoyer <strong>Agent Aliou</strong> pour l'analyse
+    </button>
+  </form>
+</div>
+{% endblock %}
