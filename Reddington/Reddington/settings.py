@@ -1,6 +1,10 @@
-
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
+
 
 
 
@@ -16,7 +20,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG") == "True"
 
 # Convertir ALLOWED_HOSTS en liste
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",") 
+# Récupérer ALLOWED_HOSTS depuis .env et le transformer en liste
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 
 
