@@ -14,22 +14,20 @@ api_key = os.getenv("OPENAI_API_KEY")
 browser = Browser(
     config=BrowserConfig(
         chrome_instance_path="C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-        headless=False,
+        headless=True,
     )
 )
 
 # Génère dynamiquement le prompt
 def build_task(category, number, discount):
     return (
-        f"J'ai un site de vente de produits dans la catégorie {category}."
-        "Ouvre le lien suivant : https://www.cdiscount.com. "
-        "Accepte tous les cookies et attends que la page soit complètement chargée."
-        "Recherche et clique sur le bouton Promo."
-        f"Défile la page pour voir toutes les promotions intéressantes dans la catégorie {category}."
-        f"Suggère-moi uniquement {number} produits ayant une réduction d'au moins {discount}%. "
-        "Pour chaque produit, précise : le nom, le prix actuel, le prix avant réduction, le pourcentage de réduction, "
-        "la présentation (description), l’avantage commercial potentiel, et le lien vers le produit. "
-        "Le résultat doit être retourné au format JSON strict, ne retourne rien d'autre que ce format :\n"
+        "J'ai un business de vente d'article de catégorie '{category}'."
+        f"Va sur https://www.cdiscount.com, accepte les cookies et attends que la page charge complètement. "
+        f"Clique sur 'Promo', puis explore les offres dans la catégorie '{category}'. "
+        f"Trouve {number} produits qui serrais interessants pour mon business avec une réduction d'au moins {discount}%. "
+        "Pour chaque produit, donne : le nom, le prix actuel, le prix avant réduction, le pourcentage de réduction s'il est affiché sinon ne le calcule pas, "
+        "une brève description, avantage commercial potentiel pour un business achat-revente, et le lien du produit. "
+        "Retourne uniquement un JSON strict comme ceci :\n"
         "{\n"
         "  \"products\": [\n"
         "    {\n"
@@ -44,6 +42,7 @@ def build_task(category, number, discount):
         "  ]\n"
         "}"
     )
+
 
 
 # Fonction asynchrone qui lance l'agent
