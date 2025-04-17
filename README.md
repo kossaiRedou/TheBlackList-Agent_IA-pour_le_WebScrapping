@@ -27,14 +27,22 @@ Un agent AI basé sur **Browser-Use** et **Django** pour détecter automatiqueme
 ##  Interface UX/UI & Fonctionnement
 
 ![Interface](./Reddington/media/1.png)
+![Interface](./Reddington/media/2.png)
+![Interface](./Reddington/media/3.png)
+![Interface](./Reddington/media/4.png)
+![Interface](./Reddington/media/5.png)
 
 ---
+## Auteur
+
+**Aliou DIALLO**
+Dév Python/Django & IA
 
 ##  Démarrage rapide
 
 ```bash
-git clone https://github.com/tonusername/agent-reddington.git
-cd agent-reddington
+git clone https://github.com/kossaiRedou/TheBlackList-Agent_IA-pour_le_WebScrapping.git)
+cd Reddington
 python -m venv venv
 source venv/bin/activate  # ou .\venv\Scripts\activate
 pip install -r requirements.txt
